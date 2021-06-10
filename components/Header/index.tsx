@@ -1,20 +1,18 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router'
+import Select from "react-select";
 import { CategorySearch, Container, Logo, Search } from './style'
 
 function Header() {
 
-    const [categoryId, setCategoryId] = useState(-1);
     const [description, setDescription] = useState('');
+    const [categoryId, setCategoryId] = useState("-1");
     const router = useRouter();
-
-    function handleSelectOnChange(event) {
-        setCategoryId(event.target.value);
-        router.push(`/search/category/${categoryId}`);
-    }
 
     function handleClickLogo() {
         router.push('/');
+        setCategoryId("-1");
+        setDescription("");
     }
 
     function handleInputOnChange(event) {
@@ -30,6 +28,20 @@ function Header() {
     function handleClickButton() {
         router.push(`/search/description/${description}`);
     }
+
+    function handleSelectOnChange(categoryId) {
+        setCategoryId(categoryId);
+        router.push(`/search/category/${categoryId.value}`);
+    }
+
+    const options = [
+        { value: "1", label: "Football" },
+        { value: "2", label: "Pool" },
+        { value: "3", label: "Technology" },
+        { value: "4", label: "Tools" }
+    ];
+
+
 
     return (
         <Container>
@@ -47,13 +59,13 @@ function Header() {
                 <button type="button" onClick={handleClickButton}>&rarr;</button>
             </Search>
             <CategorySearch>
-                <select name="category" id="category" onChange={handleSelectOnChange} value={categoryId}>
-                    <option value="-1" disabled hidden>Choose a category</option>
-                    <option value="1">Football</option>
-                    <option value="2">Technology</option>
-                    <option value="3">Pool</option>
-                    <option value="4">Beach</option>
-                </select>
+                <Select
+                    name="form-field-name"
+                    instanceId="category"
+                    value={categoryId}
+                    onChange={handleSelectOnChange}
+                    options={options}
+                />
             </CategorySearch>
         </Container>
     )

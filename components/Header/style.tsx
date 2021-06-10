@@ -34,7 +34,7 @@ export const Search = styled(FlexCentralized)`
     input{
         background-color: #f8f8f2;
         font-family: 'Inter', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
         width: 70%;
         border: none;
         outline: none;
@@ -44,7 +44,7 @@ export const Search = styled(FlexCentralized)`
     button{
         background-color: #f8f8f2;
         border: none;
-        font-size: 1.7rem;
+        font-size: 2rem;
         height: auto;
         width: 40px;
         cursor: pointer;
@@ -52,16 +52,6 @@ export const Search = styled(FlexCentralized)`
     }
 `;
 
-export const CategorySearch = styled(FlexCentralized)`
-    width: auto;
-    height: inherit;
-
-    select{
-        font-family: 'Inter', sans-serif;
-        font-size: 1.5rem;
-        border: none;
-        background-color: #f8f8f2;
-        outline: none;
-        padding: 10px 15px;
-    }
+export const CategorySearch = styled.div`
+    width: 10%;
 `;
