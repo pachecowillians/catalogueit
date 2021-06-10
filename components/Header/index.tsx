@@ -26,12 +26,12 @@ function Header() {
     }
 
     function handleClickButton() {
-        router.push(`/search/description/${description}`);
+        router.push(`/search/description?query=${description}`);
     }
 
     function handleSelectOnChange(categoryId) {
         setCategoryId(categoryId);
-        router.push(`/search/category/${categoryId.value}`);
+        router.push(`/search/category?query=${categoryId.value}`);
     }
 
     const options = [

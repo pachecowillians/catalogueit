@@ -8,6 +8,7 @@ export const FlexCentralized = styled.div`
 
 export const Container = styled.header`
     width: 100vw;
+    max-width: 100%;
     height: 70px;
     background-color: #282a36;
     display: flex;
