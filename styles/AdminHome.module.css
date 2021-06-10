@@ -1,0 +1,14 @@
+.container {
+    height: 100vh;
+    max-height: 100%;
+    background-color: #f2f3f5;
+    width: calc(100vw - 300px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container img{
+    cursor: pointer;
+    filter: invert();
+}
