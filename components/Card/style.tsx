@@ -29,6 +29,6 @@ export const Container = styled.div`
     }
 
     &:hover{
-        transform: scale(1);
+        transform: scale(0.95);
     }
 `;

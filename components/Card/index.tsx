@@ -1,11 +1,11 @@
 import { Container } from './style'
 
-function Card() {
+function Card({ item }) {
     return (
         <Container>
-            <img src="https://picsum.photos/200" alt="Product" />
-            <span>Product description</span>
-            <span>R$ 50,00</span>
+            <img src={item.img} alt="Product" />
+            <span>{item.description}</span>
+            <span>R$ {item.price}</span>
         </Container>
     );
 }
