@@ -1,11 +1,17 @@
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 function Search() {
     const router = useRouter();
     const { description } = router.query;
 
     return (
-        <div>{description}</div>
+        <>
+            <Head>
+                <title>Search</title>
+            </Head>
+            <h1>{description}</h1>
+        </>
     );
 }
 

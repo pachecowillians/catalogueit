@@ -41,8 +41,6 @@ function Header() {
         { value: "4", label: "Tools" }
     ];
 
-
-
     return (
         <Container>
             <Logo>
