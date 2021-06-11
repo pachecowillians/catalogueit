@@ -1,8 +1,12 @@
 import Head from 'next/head'
+import { useState } from 'react';
 import Category from '../../components/Category';
+import ModalEditCategory from '../../components/ModalEditCategory';
 import styles from '../../styles/AdminCategories.module.css'
 
 function Categories() {
+
+    const [modalItem, setModalItem] = useState({});
 
     const categories = [
         {
@@ -27,6 +31,14 @@ function Categories() {
         },
     ];
 
+    function openModal(item) {
+        setModalItem(item);
+    }
+
+    function closeModal() {
+        setModalItem({});
+    }
+
     return (
         <>
             <Head>
@@ -43,13 +55,20 @@ function Categories() {
                         {
                             categories.map(
                                 (category, key) => (
-                                    <Category category={category} />
+                                    <Category key={key} category={category} openModal={openModal} />
                                 )
                             )
                         }
                     </div>
                 </div>
             </div>
+
+            {
+                (Object.keys(modalItem).length != 0) &&
+                (
+                    <ModalEditCategory item={modalItem} closeModal={closeModal} />
+                )
+            }
         </>
     );
 }
