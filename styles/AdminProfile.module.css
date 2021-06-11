@@ -1,0 +1,84 @@
+.container {
+    height: 100vh;
+    max-height: 100%;
+    background-color: #f2f3f5;
+    width: calc(100vw - 300px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 10vh;
+    user-select: none;
+}
+
+.profilePicture {
+    position: relative;
+    transition: all ease 0.2s;
+}
+
+.profilePicture img {
+    user-select: none;
+    cursor: pointer;
+    transition: all ease 0.2s;
+}
+
+.profilePicture:hover img {
+    filter: brightness(0.9);
+}
+
+.profilePicture:hover .editImage {
+    opacity: 1;
+}
+
+.editImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    background-color: #6272a4;
+    color: #f2f3f5;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    transition: all ease 0.2s;
+    cursor: pointer;
+}
+
+.inputs input, .container button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.inputs input {
+    padding: 15px;
+    font-size: 2rem;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.container button {
+    font-size: 3rem;
+    width: 30%;
+    padding: 20px;
+    background-color: #50fa7b;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    user-select: none;
+    transition: all ease 0.2s;
+}
+
+.container button:hover {
+    filter: brightness(0.95);
+}
