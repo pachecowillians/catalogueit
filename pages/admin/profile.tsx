@@ -1,6 +1,13 @@
+import Head from 'next/head'
+
 function Profile() {
     return (
-        <div>Profile</div>
+        <>
+            <Head>
+                <title>Admin | Profile</title>
+            </Head>
+            <div>Profile</div>
+        </>
     );
 }
 

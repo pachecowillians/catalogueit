@@ -1,6 +1,14 @@
+import Head from 'next/head'
+
 function Catalogue() {
     return (
-        <div>Catalogue</div>
+        <>
+            <Head>
+                <title>Admin | Catalogue</title>
+            </Head>
+            <div>Catalogue</div>
+        </>
+
     );
 }
 
