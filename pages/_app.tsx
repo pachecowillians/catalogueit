@@ -6,30 +6,30 @@ import styles from '../styles/App.module.css'
 function MyApp({ Component, pageProps, router }) {
 
     function renderSideBar() {
-        const itemIndex = [
-            {
-                url: '/admin',
-                index: -1,
-            },
-            {
-                url: '/admin/profile',
-                index: 1,
-            },
-            {
-                url: '/admin/catalogue',
-                index: 2,
-            },
-            {
-                url: '/admin/categories',
-                index: 3,
-            },
-        ]
-        const selectedItem = router.pathname;
-        const selectedIndex = itemIndex.filter(item => item.url == selectedItem)
-        return <SideBar selectedItem={selectedIndex[0].index} />
+        if (router.pathname != '/admin/login') {
+            const itemIndex = [
+                {
+                    url: '/admin',
+                    index: -1,
+                },
+                {
+                    url: '/admin/profile',
+                    index: 1,
+                },
+                {
+                    url: '/admin/catalogue',
+                    index: 2,
+                },
+                {
+                    url: '/admin/categories',
+                    index: 3,
+                },
+            ]
+            const selectedItem = router.pathname;
+            const selectedIndex = itemIndex.filter(item => item.url == selectedItem)
+            return <SideBar selectedItem={selectedIndex[0].index} />
+        }
     }
-
-
 
     return (
         <>
