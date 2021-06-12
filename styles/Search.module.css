@@ -6,11 +6,17 @@
     background-color: #f2f3f5;
 }
 
-.products{
+.container>span {
+    display: block;
+    padding: 20px 10%;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+.products {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 0px;
 }
 
 .items {

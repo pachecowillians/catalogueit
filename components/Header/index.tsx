@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router'
 import Select from "react-select";
 import { CategorySearch, Container, Logo, Search } from './style'
+import SearchIcon from '@material-ui/icons/Search';
 
 function Header() {
 
@@ -34,12 +35,58 @@ function Header() {
         router.push(`/search/category?query=${categoryId.value}`);
     }
 
-    const options = [
-        { value: "1", label: "Football" },
-        { value: "2", label: "Pool" },
-        { value: "3", label: "Technology" },
-        { value: "4", label: "Tools" }
+    const categories = [
+        {
+            id: 1,
+            name: 'Sports',
+        },
+        {
+            id: 2,
+            name: 'Pool',
+        },
+        {
+            id: 3,
+            name: 'Beach',
+        },
+        {
+            id: 4,
+            name: 'Food',
+        },
+        {
+            id: 5,
+            name: 'Technology',
+        },
+        {
+            id: 6,
+            name: 'Clothes',
+        },
     ];
+
+    const options = [];
+
+    categories.map(
+        (category) => {
+            options.push({ value: category.id, label: category.name })
+        }
+    )
+
+    const colourStyles = {
+        control: styles => (
+            {
+                ...styles,
+                cursor: 'pointer',
+                border: 0,
+                boxShadow: 'none',
+            }
+        ),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => (
+            {
+                ...styles,
+                cursor: "pointer",
+                backgroundColor: isSelected ? '#282a36' : isFocused ? 'rgba(68, 71, 90, 0.3)' : '#f8f8f2',
+            }
+        ),
+    };
 
     return (
         <Container>
@@ -54,15 +101,17 @@ function Header() {
                     onKeyPress={handleInputKeyPress}
                     value={description}
                 />
-                <button type="button" onClick={handleClickButton}>&rarr;</button>
+                <button type="button" onClick={handleClickButton}><SearchIcon /></button>
             </Search>
             <CategorySearch>
                 <Select
-                    name="form-field-name"
+                    name="category"
                     instanceId="category"
+                    placeholder="Category"
                     value={categoryId}
                     onChange={handleSelectOnChange}
                     options={options}
+                    styles={colourStyles}
                 />
             </CategorySearch>
         </Container>

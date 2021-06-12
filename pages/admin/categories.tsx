@@ -29,6 +29,10 @@ function Categories() {
             id: 5,
             name: 'Technology',
         },
+        {
+            id: 6,
+            name: 'Clothes',
+        },
     ];
 
     function openModal(item) {

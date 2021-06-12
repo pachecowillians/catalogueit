@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import styles from '../../styles/CategorySearch.module.css'
+import styles from '../../styles/Search.module.css'
 import Card from '../../components/Card';
 
 function Search() {
     const router = useRouter();
     const { type, query } = router.query;
-    
+
     const items = [
         {
             id: 1,
@@ -70,6 +70,39 @@ function Search() {
         },
     ];
 
+    const categories = [
+        {
+            id: 1,
+            name: 'Sports',
+        },
+        {
+            id: 2,
+            name: 'Pool',
+        },
+        {
+            id: 3,
+            name: 'Beach',
+        },
+        {
+            id: 4,
+            name: 'Food',
+        },
+        {
+            id: 5,
+            name: 'Technology',
+        },
+        {
+            id: 6,
+            name: 'Clothes',
+        },
+    ];
+
+    const search = (type == 'description') ?
+        query :
+        (
+            query && categories.filter(category => String(category.id) == String(query))[0].name
+        )
+
     return (
         <>
             <Head>
@@ -77,6 +110,7 @@ function Search() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <div className={styles.container}>
+                <span>You searched for: {search}</span>
                 <div className={styles.products}>
                     <div className={styles.items}>
                         {items.map(

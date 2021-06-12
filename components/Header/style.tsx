@@ -19,9 +19,14 @@ export const Container = styled.header`
 
 export const Logo = styled(FlexCentralized)`
     cursor: pointer;
+    width:15vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     
     img{
-        width: 50px;
+        width: auto;
+        max-height: 30px;
         height: inherit;
         border-radius: 5px;
     }
@@ -31,28 +36,41 @@ export const Search = styled(FlexCentralized)`
     width: 70%;
     height: auto;
     align-items: stretch;
+    width: auto;
+    background-color: #f8f8f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 0px 10px;
 
-    input{
-        background-color: #f8f8f2;
-        font-family: 'Inter', sans-serif;
-        font-size: 1.6rem;
-        width: 70%;
+    input, button{
         border: none;
         outline: none;
+        background-color: inherit;
+    }
+
+    input{
+        width: 40vw;
+        font-family: 'Inter', sans-serif;
+        font-size: 1.6rem;
         padding: 10px 15px;
     }
 
     button{
-        background-color: #f8f8f2;
-        border: none;
-        font-size: 2rem;
-        height: auto;
         width: 40px;
         cursor: pointer;
-        outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: inherit;
+
+        *{
+            font-size: 2rem;
+        }
     }
 `;
 
 export const CategorySearch = styled.div`
-    width: 10%;
+    width: 15vw;
 `;
