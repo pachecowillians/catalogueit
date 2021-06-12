@@ -1,20 +1,15 @@
-import { useRouter } from 'next/router';
 import { Container } from './style'
+import Link from 'next/link'
 
 function Card({ item }) {
-
-    const router = useRouter();
-
-    function handleOnClick() {
-        router.push(`/item/${item.id}`);
-    }
-
     return (
-        <Container onClick={handleOnClick}>
-            <img src={item.img} alt="Product" />
-            <span>{item.description}</span>
-            <span>R$ {item.price}</span>
-        </Container>
+        <Link href={`/item/${item.id}`}>
+            <Container>
+                <img src={item.img} alt="Product" />
+                <span>{item.description}</span>
+                <span>R$ {item.price}</span>
+            </Container>
+        </Link>
     );
 }
 

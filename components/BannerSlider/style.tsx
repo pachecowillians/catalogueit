@@ -13,7 +13,7 @@ export const VisibleItems = styled.div`
 `;
 
 export const AllItems = styled.div`
-    width: 10000px;
+    width: ${props => `${props.width}px`};
     display: flex;
     flex-direction: row;
     align-items: center;

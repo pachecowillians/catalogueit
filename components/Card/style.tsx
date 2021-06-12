@@ -10,7 +10,7 @@ export const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 20px;
+    padding: 30px 20px;
     transform: scale(0.9);
     transition: all ease 0.2s;
 
@@ -20,7 +20,7 @@ export const Container = styled.div`
     }
 
     span:nth-child(2){
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     span:nth-child(3){

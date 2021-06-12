@@ -1,15 +1,16 @@
-import Card from '../Card';
+import Banner from '../Banner';
 import { AllItems, Container, Controller, VisibleItems } from './style'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Slider({ items }) {
+function BannerSlider({ items }) {
 
     const [left, setLeft] = useState(0);
+    const [width, setWidth] = useState(0);
 
     function moveLeft() {
-        let newLeft = left + screen.width * 0.5;
+        let newLeft = left + width;
         if (newLeft > 0) {
             newLeft = 0;
         }
@@ -17,20 +18,24 @@ function Slider({ items }) {
     }
 
     function moveRight() {
-        let newLeft = left - screen.width * 0.5;
-        if (newLeft < -300 * items.length + screen.width) {
-            newLeft = -300 * items.length + screen.width;
+        let newLeft = left - width;
+        if (newLeft < -width * items.length + screen.width) {
+            newLeft = -width * items.length + screen.width;
         }
         setLeft(newLeft);
     }
 
+    useEffect(() => {
+        setWidth(screen.width)
+    });
+
     return (
         <Container>
             <VisibleItems>
-                <AllItems left={left}>
+                <AllItems left={left} width={items.length * width}>
                     {items.map(
                         (item, key) => (
-                            <Card key={key} item={item} />
+                            <Banner key={key} item={item} />
                         )
                     )}
                 </AllItems>
@@ -49,4 +54,4 @@ function Slider({ items }) {
     );
 }
 
-export default Slider;
+export default BannerSlider;
