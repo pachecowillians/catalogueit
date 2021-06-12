@@ -34,6 +34,7 @@ export const Header = styled.div`
         font-size: 2.5rem;
         color: #ff5555;
         cursor: pointer;
+        cursor: pointer;
     }
 `;
 
@@ -63,6 +64,11 @@ export const Form = styled.div`
         padding: 0px 15px;
         background-color: #50fa7b;
         border-radius: 5px;
+        cursor: pointer;
+
+        &:hover{
+            filter: opacity(0.95);
+        }
 
         svg{
             font-size: 2rem;
