@@ -27,7 +27,7 @@ export const Controller = styled.div`
     position: absolute;
     top: 50%;
     ${props => props.position}: 0px;
-    background-color: #6272a4;
+    background-color: #282a36;
     color: #fff;
 
     ${({ position }) => (position == 'left') ? `

@@ -87,9 +87,11 @@ export default function Home() {
             <div className={styles.container}>
                 <br />
                 <BannerSlider items={items} />
+
                 <br />
                 <span className={styles.title}>Most popular</span>
                 <Slider items={items} />
+
                 <div className={styles.products}>
                     <div className={styles.items}>
                         {items.map(

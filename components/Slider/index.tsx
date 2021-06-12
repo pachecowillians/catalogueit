@@ -2,11 +2,12 @@ import Card from '../Card';
 import { AllItems, Container, Controller, VisibleItems } from './style'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Slider({ items }) {
 
     const [left, setLeft] = useState(0);
+    const [width, setWidth] = useState(0);
 
     function moveLeft() {
         let newLeft = left + screen.width * 0.5;
@@ -18,16 +19,20 @@ function Slider({ items }) {
 
     function moveRight() {
         let newLeft = left - screen.width * 0.5;
-        if (newLeft < -300 * items.length + screen.width) {
-            newLeft = -300 * items.length + screen.width;
+        if (newLeft < -300 * items.length + screen.width - 60) {
+            newLeft = -300 * items.length + screen.width - 60;
         }
         setLeft(newLeft);
     }
 
+    useEffect(() => {
+        setWidth(screen.width)
+    });
+
     return (
         <Container>
             <VisibleItems>
-                <AllItems left={left}>
+                <AllItems left={left} width={items.length * width}>
                     {items.map(
                         (item, key) => (
                             <Card key={key} item={item} />

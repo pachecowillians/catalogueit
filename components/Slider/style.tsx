@@ -1,19 +1,21 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.section`
     width: 100vw;
     max-width: 100%;
     height: auto;
     position: relative;
+    margin: 10px 0px;
 `;
 
 export const VisibleItems = styled.div`
-    width: 100%;
+    width: calc(100% - 60px);
+    margin-left: 20px;
     overflow-x: hidden;
 `;
 
 export const AllItems = styled.div`
-    width: 10000px;
+    width: ${props => `${props.width}px`};
     display: flex;
     flex-direction: row;
     align-items: center;
