@@ -69,7 +69,7 @@ function Item() {
         },
     ];
 
-    const item = items.filter(item => String(id) == String(item.id))
+    const item = items.filter(item => String(id) == String(item.id))[0]
     console.log(item)
 
     return (
@@ -78,9 +78,7 @@ function Item() {
                 <title>Search</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <div className={styles.container}>
-                
-            </div>
+            {item.description}
         </>
     );
 }

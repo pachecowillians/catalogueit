@@ -1,18 +1,10 @@
-.container {
-    overflow-y: auto;
-    width: 100vw;
-    max-width: 100%;
-    height: calc(100vh - 70px);
-    background-color: #f2f3f5;
-}
-
-.title{
+.title {
     font-size: 3.5rem;
     font-weight: bold;
     margin: 30px;
 }
 
-.products{
+.products {
     display: flex;
     align-items: center;
     justify-content: center;

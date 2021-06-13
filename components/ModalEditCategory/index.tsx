@@ -4,6 +4,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import { useState } from 'react';
 
 function ModalEditCategory({ item, closeModal }) {
+
     const [category, setCategory] = useState(item.name);
 
     function handleOnChange(event) {

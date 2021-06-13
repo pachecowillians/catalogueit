@@ -109,16 +109,14 @@ function Search() {
                 <title>Search</title>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
-            <div className={styles.container}>
-                <span>You searched for: {search}</span>
-                <div className={styles.products}>
-                    <div className={styles.items}>
-                        {items.map(
-                            (item, key) => (
-                                <Card key={key} item={item} />
-                            )
-                        )}
-                    </div>
+            <span className={styles.title}>You searched for: {search}</span>
+            <div className={styles.products}>
+                <div className={styles.items}>
+                    {items.map(
+                        (item, key) => (
+                            <Card key={key} item={item} />
+                        )
+                    )}
                 </div>
             </div>
         </>

@@ -84,22 +84,23 @@ export default function Home() {
             <Head>
                 <title>Catalogue it</title>
             </Head>
-            <div className={styles.container}>
-                <br />
-                <BannerSlider items={items} />
 
-                <br />
-                <span className={styles.title}>Most popular</span>
-                <Slider items={items} />
+            <br />
+            <BannerSlider items={items} />
 
-                <div className={styles.products}>
-                    <div className={styles.items}>
-                        {items.map(
+            <br />
+            <span className={styles.title}>Most popular</span>
+            <Slider items={items} />
+
+            <div className={styles.products}>
+                <div className={styles.items}>
+                    {
+                        items.map(
                             (item, key) => (
                                 <Card key={key} item={item} />
                             )
-                        )}
-                    </div>
+                        )
+                    }
                 </div>
             </div>
         </>

@@ -1,12 +1,4 @@
-.container {
-    overflow-y: auto;
-    width: 100vw;
-    max-width: 100%;
-    height: calc(100vh - 70px);
-    background-color: #f2f3f5;
-}
-
-.container>span {
+.title {
     display: block;
     padding: 20px 10%;
     font-size: 3rem;

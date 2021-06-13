@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     position: fixed;
+    top: 0px;
+    left: 0px;
     width: 100vw;
     height: 100vh;
     background-color: rgba(40, 42, 54,0.5);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 99;
 `;
 
 export const Content = styled.div`
