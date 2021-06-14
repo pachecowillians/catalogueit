@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: auto;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 70px auto;
+    grid-template-rows: 1fr auto;
     grid-template-areas: "header" "main";
 `;
 
@@ -18,6 +18,6 @@ export const Content = styled.div`
     overflow-y: auto;
     width: 100vw;
     max-width: 100%;
-    height: calc(100vh - 70px);
+    min-height: 90vh;
     background-color: #f2f3f5;
 `;
