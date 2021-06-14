@@ -92,6 +92,7 @@ export default function Home() {
             <span className={styles.title}>Most popular</span>
             <Slider items={items} />
 
+            <span className={styles.title}>You can like</span>
             <div className={styles.products}>
                 <div className={styles.items}>
                     {
