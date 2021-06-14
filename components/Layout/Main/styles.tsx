@@ -5,8 +5,12 @@ export const Container = styled.div`
     height: auto;
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 80px auto;
     grid-template-areas: "header" "main";
+
+    @media(max-width:770px){
+        grid-template-rows: 120px auto;
+    }
 `;
 
 export const HeaderArea = styled.div`
@@ -18,6 +22,10 @@ export const Content = styled.div`
     overflow-y: auto;
     width: 100vw;
     max-width: 100%;
-    min-height: 90vh;
+    height: calc(100vh - 80px);
     background-color: #f2f3f5;
+
+    @media(max-width:770px){
+        height: calc(100vh - 120px);
+    }
 `;

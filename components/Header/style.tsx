@@ -43,12 +43,12 @@ export const Search = styled.div`
     width: 80%;
     height: auto;
     align-items: stretch;
-    background-color: #f8f8f2;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 5px;
     padding: 0px 10px;
+    background-color: #fff;
     grid-area: input;
 
     input, button{
