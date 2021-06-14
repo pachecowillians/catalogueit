@@ -39,9 +39,14 @@
     font-family: 'Inter', sans-serif;
     user-select: none;
     transition: all ease 0.2s;
-
 }
 
 .container button:hover {
     filter: opacity(0.8);
+}
+
+@media(max-width:800px) {
+    .inputs, .container button {
+        width: 50%;
+    }
 }
