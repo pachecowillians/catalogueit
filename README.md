@@ -29,4 +29,5 @@ Tools used:
         - :first-child
         - :nth-child()
     - Responsive layout
+    - Media queries
  - HTML
