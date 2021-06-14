@@ -2,7 +2,7 @@ import SideBar from "../../SideBar";
 import { Container, Content, SideBarArea } from "./style";
 
 function Admin({ children, route }) {
-
+    
     function renderSideBar() {
         if (route != '/admin/login') {
 

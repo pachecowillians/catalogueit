@@ -1,10 +1,44 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    display: ${props => props.active ? `inherit` : `none`};
     width: 100%;
     background-color: #282a36;
     height: 100vh;
     max-height: 100%;
+    z-index: 98;
+
+    @media(min-width:900px){
+        display: inherit;
+    }
+
+    @media(max-width:900px){
+        padding-top: 40px;
+    }
+
+    @media(max-width:600px){
+        position: absolute;
+    }
+`;
+
+export const Toggle = styled.div`
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    z-index: 99;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #282a36;
+
+    svg{
+        padding-top: 3px;
+        font-size: 3rem;
+        color: #fff;
+    }
+
+    @media(min-width:900px){
+        display: none;
+    }
 `;
 
 export const Logo = styled.div`
@@ -15,7 +49,8 @@ export const Logo = styled.div`
     padding: 30px;
     
     img{
-        width: 150px;
+        width: 100%;
+        max-width: 150px;
         height: inherit;
         border-radius: 5px;
     }
@@ -46,5 +81,9 @@ export const Option = styled.div`
     svg{
         font-size: 2.5rem;
         margin-right: 10px;
+    }
+
+    @media(max-width:1000px){
+        padding: 15px 30px;
     }
 `;
