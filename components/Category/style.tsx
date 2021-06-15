@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 30px;
-    margin: 10px;
+    margin: 10px 0px;
     border-radius: 5px;
     background-color: #44475a;
     color: #f8f8f2;
@@ -24,8 +25,9 @@ export const Buttons = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 15%;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 30%;
 
     button{
         border: none;
