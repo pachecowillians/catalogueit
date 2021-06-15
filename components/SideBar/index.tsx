@@ -24,12 +24,12 @@ function SideBar({ selectedItem }) {
                 }
             </Toggle>
             <Container active={isSideBarActive}>
-                <Logo>
+                <Logo onClick={toggleSideBar}>
                     <Link href="/admin">
                         <img src="/vercel.svg" alt="Logo" />
                     </Link>
                 </Logo>
-                <Options selectedItem={selectedItem}>
+                <Options selectedItem={selectedItem} onClick={toggleSideBar}>
                     <Link href="/admin/profile">
                         <Option>
                             <PersonIcon />

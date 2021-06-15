@@ -29,7 +29,6 @@ export const Toggle = styled.div`
     top: 20px;
     left: 20px;
     z-index: 99;
-    border-radius: 5px;
     padding: 5px;
     background-color: transparent;
     transition: all ease 0.3s;
