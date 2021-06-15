@@ -18,6 +18,18 @@ export const Content = styled.div`
     height: 50%;
     background-color: #282a36;
     border-radius: 5px;
+
+    @media(max-width:1000px){
+        width: 70%;
+    }
+
+    @media(max-width:1000px){
+        max-height: 250px;
+    }
+
+    @media(max-width:500px){
+        max-height: 200px;
+    }
 `;
 
 export const Header = styled.div`
