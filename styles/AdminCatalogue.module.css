@@ -61,6 +61,8 @@
 .products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: auto;
+    width: 100%;
 }
 
 @media(max-width:1200px) {
