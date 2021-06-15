@@ -16,7 +16,7 @@ function SideBar({ selectedItem }) {
     }
     return (
         <>
-            <Toggle onClick={toggleSideBar}>
+            <Toggle onClick={toggleSideBar} active={isSideBarActive}>
                 {!isSideBarActive ?
                     <MenuIcon />
                     :
