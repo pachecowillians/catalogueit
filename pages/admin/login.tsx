@@ -9,12 +9,14 @@ function Login() {
             </Head>
 
             <div className={styles.container}>
-                <img src="/vercel.svg" alt="Logo" />
-                <div className={styles.inputs}>
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
+                <div className={styles.body}>
+                    <img src="/vercel.svg" alt="Logo" />
+                    <div className={styles.inputs}>
+                        <input type="text" placeholder="Username" />
+                        <input type="password" placeholder="Password" />
+                    </div>
+                    <button>Login</button>
                 </div>
-                <button>Login</button>
             </div>
         </>
     );
