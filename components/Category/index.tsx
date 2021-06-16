@@ -2,7 +2,7 @@ import { Buttons, Container, Name } from './style'
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-function Category({ category, openModal }) {
+function Category({ category, openModal, deleteCategory }) {
 
     return (
         <Container>
@@ -16,7 +16,12 @@ function Category({ category, openModal }) {
                 >
                     <EditIcon style={{ fontSize: 25 }} />
                 </button>
-                <button type="button">
+                <button
+                    type="button"
+                    onClick={
+                        () => { deleteCategory(category) }
+                    }
+                >
                     <DeleteIcon style={{ fontSize: 25 }} />
                 </button>
             </Buttons>

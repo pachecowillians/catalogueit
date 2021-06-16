@@ -33,6 +33,11 @@ function Categories() {
         event.preventDefault();
     }
 
+    function deleteCategory(item) {
+        const newList = categoryList.filter(category => category != item);
+        setCategoryList(newList);
+    }
+
     return (
         <>
             <Head>
@@ -49,7 +54,7 @@ function Categories() {
                         {
                             categoryList.map(
                                 (category, key) => (
-                                    <Category key={key} category={category} openModal={openModal} />
+                                    <Category key={key} category={category} openModal={openModal} deleteCategory={deleteCategory} />
                                 )
                             )
                         }
