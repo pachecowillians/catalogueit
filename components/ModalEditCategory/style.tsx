@@ -61,7 +61,7 @@ export const Body = styled.div`
     justify-content: center;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     display: flex;
     justify-content: center;
     align-items: stretch;

@@ -11,6 +11,12 @@ function ModalEditCategory({ item, closeModal }) {
         setCategory(event.target.value);
     }
 
+    function handleOnSubmit(event) {
+        item.name = category;
+        event.preventDefault();
+        closeModal();
+    }
+
     return (
         <Container>
             <Content>
@@ -19,7 +25,7 @@ function ModalEditCategory({ item, closeModal }) {
                     <CloseIcon onClick={closeModal} />
                 </Header>
                 <Body>
-                    <Form>
+                    <Form onSubmit={handleOnSubmit}>
                         <input type="text" placeholder="Category name" onChange={handleOnChange} value={category} />
                         <button type="button"><DoneIcon /></button>
                     </Form>
