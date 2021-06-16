@@ -8,6 +8,8 @@ import { categories } from '../../api/StaticData'
 function Categories() {
 
     const [modalItem, setModalItem] = useState({});
+    const [category, setCategory] = useState('');
+    const [categoryList, setCategoryList] = useState(categories)
 
     function openModal(item) {
         setModalItem(item);
@@ -15,6 +17,20 @@ function Categories() {
 
     function closeModal() {
         setModalItem({});
+    }
+
+    function handleOnChange(event) {
+        setCategory(event.target.value)
+    }
+
+    function handleOnSubmit(event) {
+        const newCategory = {
+            id: categories.length + 1,
+            name: category,
+        }
+        setCategoryList([newCategory, ...categoryList]);
+        setCategory('');
+        event.preventDefault();
     }
 
     return (
@@ -25,13 +41,13 @@ function Categories() {
 
             <div className={styles.container}>
                 <div className={styles.contentArea}>
-                    <div className={styles.newCategory}>
-                        <input type="text" placeholder="Type the category name..." />
-                        <button type="button">+</button>
-                    </div>
+                    <form onSubmit={handleOnSubmit} className={styles.newCategory}>
+                        <input type="text" placeholder="Type the category name..." value={category} onChange={handleOnChange} />
+                        <button type="submit">+</button>
+                    </form>
                     <div className={styles.categoryList}>
                         {
-                            categories.map(
+                            categoryList.map(
                                 (category, key) => (
                                     <Category key={key} category={category} openModal={openModal} />
                                 )
