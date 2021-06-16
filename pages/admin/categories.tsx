@@ -3,37 +3,11 @@ import { useState } from 'react';
 import Category from '../../components/Category';
 import ModalEditCategory from '../../components/ModalEditCategory';
 import styles from '../../styles/AdminCategories.module.css'
+import { categories } from '../../api/StaticData'
 
 function Categories() {
 
     const [modalItem, setModalItem] = useState({});
-
-    const categories = [
-        {
-            id: 1,
-            name: 'Sports',
-        },
-        {
-            id: 2,
-            name: 'Pool',
-        },
-        {
-            id: 3,
-            name: 'Beach',
-        },
-        {
-            id: 4,
-            name: 'Food',
-        },
-        {
-            id: 5,
-            name: 'Technology',
-        },
-        {
-            id: 6,
-            name: 'Clothes',
-        },
-    ];
 
     function openModal(item) {
         setModalItem(item);

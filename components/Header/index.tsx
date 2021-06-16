@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import Select from "react-select";
 import { CategorySearch, Container, Logo, Search } from './style'
 import SearchIcon from '@material-ui/icons/Search';
+import { categories } from '../../api/StaticData'
 
 function Header() {
 
@@ -34,33 +35,6 @@ function Header() {
         setCategoryId(categoryId);
         router.push(`/search/category?query=${categoryId.value}`);
     }
-
-    const categories = [
-        {
-            id: 1,
-            name: 'Sports',
-        },
-        {
-            id: 2,
-            name: 'Pool',
-        },
-        {
-            id: 3,
-            name: 'Beach',
-        },
-        {
-            id: 4,
-            name: 'Food',
-        },
-        {
-            id: 5,
-            name: 'Technology',
-        },
-        {
-            id: 6,
-            name: 'Clothes',
-        },
-    ];
 
     const options = [];
 
