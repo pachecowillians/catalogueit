@@ -52,36 +52,26 @@ export const Body = styled.div`
     align-items: center;
 `;
 
-export const Form = styled.div`
+export const Form = styled.form`
     display: flex;
     flex-direction: column;
     gap: 20px;
     font-size: 2rem;
 
-    input{
+    input, select, button{
             font-size: 2rem;
             padding: 10px 20px;
             border-radius: 5px;
             border: none;
             outline: none;
             width: 100%;
-
-            &:nth-child(2){
-                grid-area: description;
-            }
-
-            &:nth-child(3){
-                grid-area: price;
-            }
+            background-color: #fff;
+            grid-area: inputs;
         }
 
         button{
             grid-area: button;
-            border: none;
-            outline: none;
-            width: 100%;
             height: 100%;
-            border-radius: 5px;
             background-color: #50fa7b;
             cursor: pointer;
             padding: 15px 0px;
@@ -93,6 +83,12 @@ export const Form = styled.div`
             &:hover{
                 filter: brightness(0.95);
             }
+        }
+
+        select{
+            outline: none;
+            border: none;
+
         }
 `;
 
