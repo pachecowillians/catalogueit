@@ -115,16 +115,25 @@ export const Image = styled.div`
     grid-area: picture;
     position: relative;
     transition: all ease 0.2s;
+    width: 100%;
+    max-height: 300px;
     display: flex;
-    align-items: center;
     justify-content: center;
 
-    img{
-        user-select: none;
-        cursor: pointer;
-        transition: all ease 0.2s;
+    label{
+        display: flex;
+        justify-content: center;
     }
 
+    img{
+        justify-self:center;
+        user-select: none;
+        cursor: pointer;
+        max-width: 100%;
+        max-height: 100%;
+        transition: all ease 0.2s;
+    }
+    
     &:hover img{
         filter: brightness(0.9);
     }

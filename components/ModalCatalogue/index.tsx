@@ -1,12 +1,13 @@
 import { Body, Container, Content, Header, Form, Image, EditImage } from './style'
 import CloseIcon from '@material-ui/icons/Close';
 import DoneIcon from '@material-ui/icons/Done';
-import Select from "react-select";
-import { useState } from 'react';
+import { createRef, useState } from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import { categories } from '../../api/StaticData'
 
 function ModalCatalogue({ item, closeModal }) {
+
+    const fileInput = createRef();
 
     const [categoryId, setCategoryId] = useState("-1");
     const [description, setDescription] = useState(item.description);
@@ -26,18 +27,18 @@ function ModalCatalogue({ item, closeModal }) {
     }
 
     function handleOnChangeImage() {
-        // var file = document.querySelector('input[type=file]').files[0];
-        // var reader = new FileReader();
+        var file = fileInput.current.files[0];
+        var reader = new FileReader();
 
-        // reader.onloadend = function () {
-        //     setImage(reader.result);
-        // }
+        reader.onloadend = function () {
+            setImage(reader.result);
+        }
 
-        // if (file) {
-        //     reader.readAsDataURL(file);
-        // } else {
-        //     setImage('');
-        // }
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            setImage('');
+        }
     }
 
     return (
@@ -59,7 +60,8 @@ function ModalCatalogue({ item, closeModal }) {
                     <Form>
                         <input type="text" placeholder="Description" onChange={handleOnChangeDescription} value={description} />
                         <input type="number" placeholder="Price" onChange={handleOnChangePrice} value={price} />
-                        <input type="file" id="file" hidden onChange={handleOnChangeImage} />
+                        <input type="file" id="file" hidden onChange={handleOnChangeImage} ref={fileInput} />
+                        
                         <select name="category" id="category" value={categoryId} onChange={handleOnChangeSelect}>
                             {
                                 categories.map(
