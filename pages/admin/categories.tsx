@@ -4,11 +4,35 @@ import Category from '../../components/Category';
 import styles from '../../styles/AdminCategories.module.css'
 import { categories } from '../../api/StaticData'
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core';
+import { styled } from '@material-ui/styles';
 
 type Category = {
     id: number;
     name: string;
 }
+
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+        color: '#6272a4',
+    },
+    '& .MuiInput-underline:after': {
+        borderBottomColor: '#6272a4',
+    },
+    '& .MuiOutlinedInput-root': {
+        '&.Mui-focused fieldset': {
+            borderColor: '#6272a4',
+        },
+    },
+});
+
+const CssButton = styled(Button)({
+    '&': {
+        backgroundColor: '#6272a4'
+    },
+    '&:hover': {
+        backgroundColor: '#5265a3'
+    }
+})
 
 function Categories() {
     const [inputCategoryName, setInputCategoryName] = useState('')
@@ -80,10 +104,10 @@ function Categories() {
             <Dialog
                 open={open} onClose={() => { setOpen(false) }}>
                 <DialogTitle style={{ fontSize: '20px' }} disableTypography>
-                    Edit the category
+                    Edit category
                 </DialogTitle>
                 <DialogContent >
-                    <TextField
+                    <CssTextField
                         autoFocus
                         margin="dense"
                         id="name"
@@ -105,13 +129,13 @@ function Categories() {
                     >
                         Close
                     </Button>
-                    <Button
+                    <CssButton
                         style={{ fontSize: '15px' }}
                         onClick={() => { updateCategory(dialogCategory) }}
                         color="primary"
                         variant="contained">
                         Save
-                    </Button>
+                    </CssButton>
                 </DialogActions>
             </Dialog>
         </>
