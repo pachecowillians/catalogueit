@@ -21,7 +21,8 @@
     grid-gap: 10px;
 }
 
-.newCategory input, .newCategory button {
+.newCategory input,
+.newCategory button {
     border: none;
     outline: none;
     border-radius: 5px;
@@ -57,8 +58,8 @@
     margin-top: 50px;
 }
 
-@media(max-width:500px){
-    .contentArea{
+@media(max-width:500px) {
+    .contentArea {
         width: 80%;
     }
 }

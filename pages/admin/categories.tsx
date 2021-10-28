@@ -4,20 +4,16 @@ import Category from '../../components/Category';
 import ModalEditCategory from '../../components/ModalEditCategory';
 import styles from '../../styles/AdminCategories.module.css'
 import { categories } from '../../api/StaticData'
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@material-ui/core';
+
+type Category = {
+    id: number;
+    name: string;
+}
 
 function Categories() {
-
-    const [modalItem, setModalItem] = useState({});
-    const [category, setCategory] = useState('');
-    const [categoryList, setCategoryList] = useState(categories)
-
-    function openModal(item) {
-        setModalItem(item);
-    }
-
-    function closeModal() {
-        setModalItem({});
-    }
+    const [categoryName, setCategory] = useState({} as Category);
+    const [categoryList, setCategoryList] = useState<Category[]>(categories)
 
     function handleOnChange(event) {
         setCategory(event.target.value)
@@ -26,16 +22,23 @@ function Categories() {
     function handleOnSubmit(event) {
         const newCategory = {
             id: categories.length + 1,
-            name: category,
+            name: categoryName,
         }
-        setCategoryList([newCategory, ...categoryList]);
-        setCategory('');
-        event.preventDefault();
+        // setCategoryList([newCategory, ...categoryList]);
+        // setCategory({} as Category);
+        // event.preventDefault();
     }
 
     function deleteCategory(item) {
-        const newList = categoryList.filter(category => category != item);
+        const newList = categoryList.filter(categoryName => categoryName != item);
         setCategoryList(newList);
+    }
+
+    function updateCategory(id, name) {
+        const auxCategoryList = [...categoryList]
+        const index = auxCategoryList.findIndex(categoryName => categoryName.id === id)
+        auxCategoryList[index].name = name;
+        setCategoryList(auxCategoryList)
     }
 
     return (
@@ -47,14 +50,19 @@ function Categories() {
             <div className={styles.container}>
                 <div className={styles.contentArea}>
                     <form onSubmit={handleOnSubmit} className={styles.newCategory}>
-                        <input type="text" placeholder="Type the category name..." value={category} onChange={handleOnChange} />
+                        <input type="text" placeholder="Type the categoryName name..." value={categoryName.name} onChange={handleOnChange} />
                         <button type="submit">+</button>
                     </form>
                     <div className={styles.categoryList}>
                         {
                             categoryList.map(
                                 (category, key) => (
-                                    <Category key={key} category={category} openModal={openModal} deleteCategory={deleteCategory} />
+                                    <Category
+                                        key={key}
+                                        category={category}
+                                        updateCategory={updateCategory}
+                                        deleteCategory={deleteCategory}
+                                    />
                                 )
                             )
                         }
@@ -62,12 +70,14 @@ function Categories() {
                 </div>
             </div>
 
-            {
+
+
+            {/* {
                 (Object.keys(modalItem).length != 0) &&
                 (
                     <ModalEditCategory item={modalItem} closeModal={closeModal} />
                 )
-            }
+            } */}
         </>
     );
 }
