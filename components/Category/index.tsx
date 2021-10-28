@@ -1,7 +1,7 @@
 import { Buttons, Container, Name } from './style'
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@material-ui/core';
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core';
 import { useState } from 'react';
 
 function Category({ category, updateCategory, deleteCategory }) {

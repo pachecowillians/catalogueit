@@ -1,10 +1,8 @@
 import Head from 'next/head'
 import { useState } from 'react';
 import Category from '../../components/Category';
-import ModalEditCategory from '../../components/ModalEditCategory';
 import styles from '../../styles/AdminCategories.module.css'
 import { categories } from '../../api/StaticData'
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, TextField } from '@material-ui/core';
 
 type Category = {
     id: number;
