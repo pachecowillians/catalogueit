@@ -125,7 +125,6 @@ function Categories() {
                     <Button
                         onClick={() => setOpen(false)}
                         style={{ fontSize: '15px' }}
-                        variant="outlined"
                     >
                         Close
                     </Button>
