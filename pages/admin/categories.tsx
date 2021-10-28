@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Category from '../../components/Category';
 import styles from '../../styles/AdminCategories.module.css'
 import { categories } from '../../api/StaticData'
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@material-ui/core';
 
 type Category = {
     id: number;
@@ -10,33 +11,41 @@ type Category = {
 }
 
 function Categories() {
-    const [categoryName, setCategory] = useState({} as Category);
+    const [inputCategoryName, setInputCategoryName] = useState('')
     const [categoryList, setCategoryList] = useState<Category[]>(categories)
+    const [dialogCategory, setdialogCategory] = useState({} as Category)
+    const [open, setOpen] = useState(false);
 
     function handleOnChange(event) {
-        setCategory(event.target.value)
+        setInputCategoryName(event.target.value)
+    }
+
+    function handleOpenDialog(category) {
+        setdialogCategory(category);
+        setOpen(true);
     }
 
     function handleOnSubmit(event) {
         const newCategory = {
             id: categories.length + 1,
-            name: categoryName,
+            name: inputCategoryName
         }
-        // setCategoryList([newCategory, ...categoryList]);
-        // setCategory({} as Category);
-        // event.preventDefault();
+        setCategoryList([newCategory, ...categoryList]);
+        setInputCategoryName('')
+        event.preventDefault();
     }
 
     function deleteCategory(item) {
-        const newList = categoryList.filter(categoryName => categoryName != item);
+        const newList = categoryList.filter(inputCategory => inputCategory != item);
         setCategoryList(newList);
     }
 
-    function updateCategory(id, name) {
+    function updateCategory(category) {
         const auxCategoryList = [...categoryList]
-        const index = auxCategoryList.findIndex(categoryName => categoryName.id === id)
-        auxCategoryList[index].name = name;
+        const index = auxCategoryList.findIndex(cat => cat.id === category.id)
+        auxCategoryList[index].name = category.name;
         setCategoryList(auxCategoryList)
+        setOpen(false);
     }
 
     return (
@@ -48,7 +57,7 @@ function Categories() {
             <div className={styles.container}>
                 <div className={styles.contentArea}>
                     <form onSubmit={handleOnSubmit} className={styles.newCategory}>
-                        <input type="text" placeholder="Type the categoryName name..." value={categoryName.name} onChange={handleOnChange} />
+                        <input type="text" placeholder="Type the category name..." value={inputCategoryName} onChange={handleOnChange} />
                         <button type="submit">+</button>
                     </form>
                     <div className={styles.categoryList}>
@@ -58,7 +67,7 @@ function Categories() {
                                     <Category
                                         key={key}
                                         category={category}
-                                        updateCategory={updateCategory}
+                                        openDialog={handleOpenDialog}
                                         deleteCategory={deleteCategory}
                                     />
                                 )
@@ -68,14 +77,43 @@ function Categories() {
                 </div>
             </div>
 
-
-
-            {/* {
-                (Object.keys(modalItem).length != 0) &&
-                (
-                    <ModalEditCategory item={modalItem} closeModal={closeModal} />
-                )
-            } */}
+            <Dialog
+                open={open} onClose={() => { setOpen(false) }}>
+                <DialogTitle style={{ fontSize: '20px' }} disableTypography>
+                    Edit the category
+                </DialogTitle>
+                <DialogContent >
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Category name"
+                        type="text"
+                        fullWidth
+                        variant="standard"
+                        inputProps={{ style: { fontSize: '17px' } }}
+                        InputLabelProps={{ style: { fontSize: '17px' } }}
+                        value={dialogCategory.name}
+                        onChange={(event) => { setdialogCategory({ id: dialogCategory.id, name: event.target.value }) }}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button
+                        onClick={() => setOpen(false)}
+                        style={{ fontSize: '15px' }}
+                        variant="outlined"
+                    >
+                        Close
+                    </Button>
+                    <Button
+                        style={{ fontSize: '15px' }}
+                        onClick={() => { updateCategory(dialogCategory) }}
+                        color="primary"
+                        variant="contained">
+                        Save
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </>
     );
 }
