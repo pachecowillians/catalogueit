@@ -41,6 +41,10 @@ function Catalogue() {
         console.log(dialogitem)
     };
 
+    function deleteItem(item) {
+        setProducts(products.filter((product) => product != item))
+    }
+
     const Input = styled('input')({
         display: 'none',
     });
@@ -68,7 +72,7 @@ function Catalogue() {
                         {
                             products.map(
                                 (item, key) => (
-                                    <AdminCard key={key} item={item} openModal={openModal} />
+                                    <AdminCard key={key} item={item} openModal={openModal} deleteItem={deleteItem} />
                                 )
                             )
                         }
