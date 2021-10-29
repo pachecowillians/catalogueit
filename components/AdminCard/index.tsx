@@ -10,16 +10,12 @@ function AdminCard({ item, openModal }) {
             <span>{item.description}</span>
             <span>R$ {item.price}</span>
             <Buttons>
-                <label htmlFor="icon-button-file">
-                    <IconButton color="primary" aria-label="upload picture" component="span">
-                        <EditIcon fontSize='large' onClick={() => { openModal(item) }} />
-                    </IconButton>
-                </label>
-                <label htmlFor="icon-button-file">
-                    <IconButton color="secondary" aria-label="upload picture" component="span">
-                        <DeleteIcon fontSize='large' />
-                    </IconButton>
-                </label>
+                <IconButton color="primary" aria-label="upload picture" component="span" onClick={() => { openModal(item) }}>
+                    <EditIcon fontSize='large' />
+                </IconButton>
+                <IconButton color="secondary" aria-label="upload picture" component="span">
+                    <DeleteIcon fontSize='large' />
+                </IconButton>
             </Buttons>
         </Container>
     );

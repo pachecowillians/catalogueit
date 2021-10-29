@@ -52,7 +52,8 @@
     font-size: 2rem;
 }
 
-.search input, .search button {
+.search input,
+.search button {
     border: none;
     outline: none;
     border-radius: 5px;
@@ -63,6 +64,12 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: auto;
     width: 100%;
+}
+
+.dialogArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media(max-width:1200px) {
