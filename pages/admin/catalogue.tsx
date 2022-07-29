@@ -80,17 +80,27 @@ function Catalogue() {
                 </div>
             </div>
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Edit product</DialogTitle>
+                <DialogTitle><span style={{ fontSize: '20px' }}>Edit product </span></DialogTitle>
                 <DialogContent>
                     <div className={styles.dialogArea}>
                         <label htmlFor="icon-button-file">
                             <Input accept="image/*" id="icon-button-file" type="file" />
                             <IconButton color="primary" aria-label="upload picture" component="span">
-                                <PhotoCamera />
+                                <PhotoCamera style={{ fontSize: '30px' }} />
                             </IconButton>
                         </label>
                     </div>
                     <TextField
+                        inputProps={{
+                            style: {
+                                fontSize: '15px'
+                            }
+                        }}
+                        InputLabelProps={{
+                            style: {
+                                fontSize: '13px'
+                            }
+                        }}
                         autoFocus
                         margin="dense"
                         id="description"
@@ -102,6 +112,16 @@ function Catalogue() {
                         onChange={(event) => { handleOnChange('description', event.target.value) }}
                     />
                     <TextField
+                        inputProps={{
+                            style: {
+                                fontSize: '15px'
+                            }
+                        }}
+                        InputLabelProps={{
+                            style: {
+                                fontSize: '13px'
+                            }
+                        }}
                         autoFocus
                         margin="dense"
                         id="Price"
@@ -113,24 +133,39 @@ function Catalogue() {
                         onChange={(event) => { handleOnChange('price', event.target.value) }}
                     />
                     <FormControl variant="standard" fullWidth>
-                        <InputLabel id="category-label">Category</InputLabel>
+                        <InputLabel
+                            id="category-label"
+                            style={{
+                                fontSize: '13px'
+                            }}>
+                            Category
+                        </InputLabel>
                         <Select
                             labelId="category-label"
                             id="category"
                             value={dialogItem.category}
                             onChange={(event) => { handleOnChange('category', event.target.value) }}
+                            style={{
+                                fontSize: '15px'
+                            }}
                             label="Category">
                             {
                                 categories.map(
-                                    (category, key) => <MenuItem key={key} value={category.id}>{category.name}</MenuItem>
+                                    (category, key) =>
+                                        <MenuItem
+                                            style={{ fontSize: '13px' }}
+                                            key={key}
+                                            value={category.id}>
+                                            {category.name}
+                                        </MenuItem>
                                 )
                             }
                         </Select>
                     </FormControl>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleSave}>Save</Button>
+                    <Button onClick={handleClose} style={{fontSize:'12px'}}>Cancel</Button>
+                    <Button onClick={handleSave} style={{fontSize:'12px'}} variant="contained" color="primary">Save</Button>
                 </DialogActions>
             </Dialog>
         </>
